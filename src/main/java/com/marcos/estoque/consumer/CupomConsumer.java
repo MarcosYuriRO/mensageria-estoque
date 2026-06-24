@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CupomConsumer {
 	
-	@RabbitListener
+	@RabbitListener(queues = "vendas.cupom.criado.estoque")
 	public void escutarCupomCriado(CupomEventoMessage mensagem) {
 		log.info(" [RASTREIO] Nova mensagem recebida da fila de Vendas!");
         log.info("Processando baixa de estoque para o cupom ID: {}", mensagem.id());
